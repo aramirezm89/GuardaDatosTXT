@@ -2,3 +2,18 @@ Antonio,ramirez,8.0
 Claudia,Ojeda,7.0
 antonio,manzano,4.0
 Cristal,Ramirez,6.0
+Antonio ,Ramirez ,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,6.0
+Antonio,Ramirez ,2.0
+Antonio,Ramirez,6.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez ,5.0
+florencia,quiñoa,3.9
+antonio,monsalve,5.0

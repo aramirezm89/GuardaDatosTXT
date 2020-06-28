@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.Connection;
 import datos.EscribeArchivo;
 import Negocio.Alumno;
 
@@ -48,6 +51,9 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -61,17 +67,39 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        ");
  String nombre = request.getParameter("nombre");
            String apellido = request.getParameter("apellidos");
-           String promedio  = request.getParameter("Promedio") ;       
-        
+           String promedio  = request.getParameter("promedio") ;       
+           int registro;
         Alumno a = new Alumno(nombre,apellido,promedio);
-       EscribeArchivo.add(a);
+      EscribeArchivo.add(a);
+     
+    try{
+     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    String conexion ="jdbc:sqlserver://LEONOVO-LEGION-\\SQLEXPRESS:1433;DatabaseName=JAVA_1;integratedSecurity=true;";
+     Connection cnn = DriverManager.getConnection(conexion);
+     
+     PreparedStatement ps = cnn.prepareStatement("INSERT INTO JAVA_1_Alumno(nombre,apellido,promedio) values (?,?,?)");
+     ps.setString(1,nombre);
+      ps.setString(2,apellido);
+       ps.setString(3,promedio);
+       
+       registro = ps.executeUpdate();
+       if (registro>=1) {
+               out.println("<h1> Registrado con exito</h1>");
+           }else{
+           out.println("<h1> no se pudo insertar el registro</h1>");
+       }
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+
+
+
+
+      
          
       out.write("\n");
       out.write("        \n");
-      out.write("        \n");
-      out.write("        \n");
-      out.write("        \n");
-      out.write("        \n");
+      out.write("\n");
       out.write("       \n");
       out.write("         <div class=\"row\">\n");
       out.write("            <div class=\"col s6 offset-s3\" >\n");
@@ -92,7 +120,7 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            <td align=\"right\">Tus apellidos son::</td>\n");
       out.write("                            <td>");
       out.print(apellido);
-      out.write(" metros por minuto</td>\n");
+      out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
       out.write("                         <tr>\n");

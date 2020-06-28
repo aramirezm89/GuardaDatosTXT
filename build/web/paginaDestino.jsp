@@ -4,6 +4,9 @@
     Author     : Antonio
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="datos.EscribeArchivo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Negocio.Alumno"%>
@@ -20,15 +23,37 @@
         <% String nombre = request.getParameter("nombre");
            String apellido = request.getParameter("apellidos");
            String promedio  = request.getParameter("promedio") ;       
-        
-        Alumno b = new Alumno(nombre,apellido,promedio);
-      EscribeArchivo.add(b);
+           int registro;
+        Alumno a = new Alumno(nombre,apellido,promedio);
+      EscribeArchivo.add(a);
+     
+    try{
+     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+   
+     Connection cnn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=JAVA_1","sa","123");
+     
+     PreparedStatement ps = cnn.prepareStatement("INSERT INTO JAVA_1_Alumno(nombre,apellido,promedio) values (?,?,?)");
+     ps.setString(1,nombre);
+      ps.setString(2,apellido);
+       ps.setString(3,promedio);
+       
+       registro = ps.executeUpdate();
+       if (registro>=1) {
+               out.println("<h1> Registrado con exito</h1>");
+           }else{
+           out.println("<h1> no se pudo insertar el registro</h1>");
+       }
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+
+
+
+
+      
          %>
         
-        
-        
-        
-        
+
        
          <div class="row">
             <div class="col s6 offset-s3" >
