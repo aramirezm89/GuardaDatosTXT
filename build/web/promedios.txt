@@ -17,3 +17,50 @@ Antonio,Ramirez,7.0
 Antonio,Ramirez ,5.0
 florencia,qui√±oa,3.9
 antonio,monsalve,5.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Ariel,Martinez,4.0
+alejandro ,nunez,1.0
+Alberto,Rojas,3.0
+Maria,Ursua,5.0
+CARLOS,ACU√?A,2.0
+Carmelo,Londra,6.0
+Antonio,Ramiez,2.0
+Armando,Rojas,1.0
+Camilo,Gajardo,2.0
+Antonio ,Gajardo,2.0
+Antonio ,Gajardo,2.0
+Stella,Carvajal,7.0
+Stella,Carvajal,7.0
+Stella,Carvajal,7.0
+Stella,Carvajal,7.0
+Jose Luis,Osandon,3.0
+Cristal,Ramirez,1.0
+Cristal,Ramirez,1.0
+Cristal,Ramirez,1.0
+Cristal,Ramirez,1.0
+sandor,Ramirez,7.0
+Antonio,Ramirez,7.0
+Clarisa,Herminia,8.0
+Carlos,Guerra,1.0
+alberto,qui√±oa,2.0
+jij,jkj,2.0
+barrabas,ral,2.0
+1,Antonio,Ramirez Monsalve,3.5
+1,Antonio,Ramirez,7.0
+001,Antonio,Ramirez Monsalve,7.0
+001,Antonio,Ramirez Monsalve,7.0
+2,Zulema,Gargamel,1.0
+3,Ariel,Martinez,7.0
+5,Rafaela,Gaete San Martin,3.0
+6,Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Antonio,Ramirez,7.0
+Clarisa Herminia,Monsalve Gonzalez,2.0
+Antonio,Ramiez,6.0
+Antonio,ramiez,9.0
+carlos,qui√±oa,2.0
+Barto,ArgandoÒa,2.0
+Crisstal,Ramirex,5.6
+Clarisa Herminia,Ramirez Monsalve,7.0

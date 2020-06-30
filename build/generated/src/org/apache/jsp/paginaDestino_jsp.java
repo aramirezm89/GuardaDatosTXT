@@ -35,7 +35,7 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html;charset=ISO-8859-1");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -57,60 +57,52 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"/>\n");
-      out.write("    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"/>\n");
+      out.write("        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        \n");
+      out.write("\n");
       out.write("        ");
- String nombre = request.getParameter("nombre");
-           String apellido = request.getParameter("apellidos");
-           String promedio  = request.getParameter("promedio") ;       
-           int registro;
-        Alumno a = new Alumno(nombre,apellido,promedio);
-      EscribeArchivo.add(a);
-     
-    try{
-     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    String conexion ="jdbc:sqlserver://LEONOVO-LEGION-\\SQLEXPRESS:1433;DatabaseName=JAVA_1;integratedSecurity=true;";
-     Connection cnn = DriverManager.getConnection(conexion);
-     
-     PreparedStatement ps = cnn.prepareStatement("INSERT INTO JAVA_1_Alumno(nombre,apellido,promedio) values (?,?,?)");
-     ps.setString(1,nombre);
-      ps.setString(2,apellido);
-       ps.setString(3,promedio);
+ 
+           
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellidos");
+            String promedio = request.getParameter("promedio");
+            String sexo = request.getParameter("sexo");
+            int registro;
+            Alumno a = new Alumno(nombre, apellido,sexo, promedio);
+            EscribeArchivo.add(a);
+            
+                                try {
+                                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+                                    Connection cnn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=JAVA_1", "sa", "123");
+
+                                    PreparedStatement ps = cnn.prepareStatement("INSERT INTO JAVA_1_Alumno(nombre,apellido,sexo,promedio) values (?,?,?,?)");
+                                    ps.setString(1, nombre);
+                                    ps.setString(2, apellido);
+                                    ps.setString(3, sexo);
+                                    ps.setString(4, promedio);
+
        
-       registro = ps.executeUpdate();
-       if (registro>=1) {
-               out.println("<h1> Registrado con exito</h1>");
-           }else{
-           out.println("<h1> no se pudo insertar el registro</h1>");
-       }
-    }catch(Exception e){
-        e.printStackTrace();
-    }
-
-
-
-
-      
-         
       out.write("\n");
-      out.write("        \n");
       out.write("\n");
-      out.write("       \n");
-      out.write("         <div class=\"row\">\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        <div class=\"row\">\n");
       out.write("            <div class=\"col s6 offset-s3\" >\n");
       out.write("                <div class=\"card-panel z-depth-5\" >\n");
-      out.write("       \n");
+      out.write("\n");
       out.write("                    <h2>La informacion del alumno es la siguiente</h2>\n");
-      out.write("        \n");
-      out.write("        \n");
-      out.write("                  <table cellspacing=\"3\" cellpadding=\"5\" border=\"1\">\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                    <table cellspacing=\"3\" cellpadding=\"5\" border=\"1\">\n");
+      out.write("                       \n");
+      out.write("                        \n");
       out.write("                        <tr>\n");
-      out.write("                            <td align=\"right\">Tu nombre es</td>\n");
+      out.write("                       <td align=\"right\"> <font color=\"green\"><br>Nombre alumno</br></font></td>\n");
       out.write("                            <td>");
       out.print(nombre);
       out.write("</td>\n");
@@ -123,24 +115,58 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
-      out.write("                         <tr>\n");
-      out.write("                            <td align=\"right\">Tu promedio es::</td>\n");
+      out.write("                          <tr>\n");
+      out.write("                            <td align=\"right\">El sexo del alumno es::</td>\n");
+      out.write("                            <td>");
+      out.print(sexo);
+      out.write("</td>\n");
+      out.write("\n");
+      out.write("                        </tr>\n");
+      out.write("                        <tr>\n");
+      out.write("                            <td align=\"right\">Tu promedio es:</td>\n");
       out.write("                            <td>");
       out.print(promedio);
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
-      out.write("                    </table>\n");
-      out.write("        \n");
       out.write("\n");
-      out.write("        <form action=\"Index.jsp\" merthod=\"post\">\n");
-      out.write("                <input type=\"submit\" value=\"Nuevo registro\" class=\"waves-effect waves-light btn\">\n");
-      out.write("                </form>\n");
-      out.write("    </body>\n");
-      out.write("    \n");
+      out.write("                        <tr>                \n");
+      out.write("                            <td align=\"right\">  ");
+
+
+                                    registro = ps.executeUpdate();
+                                    if (registro >= 1) {
+                                        out.println("<font size = 4 color='green'> <b>Registrado con exito </b> </font>");
+                                    } else {
+                                        out.println("<font size=4 color='green'> <b>no se pudo insertar el registro </b>");
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                            </td>       \n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                        </tr>       \n");
+      out.write("                    </table>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                 \n");
+      out.write("          <a href=\"Index.jsp\" class=\"waves-effect waves-light btn\"> Nuevo registro </a>\n");
+      out.write("          <a href=\"MostrarDatos.jsp\" class=\"waves-effect waves-light btn\"> Base de Datos</a>\n");
+      out.write("         \n");
+      out.write("                     \n");
+      out.write("                                \n");
+      out.write("                    </body>\n");
+      out.write("\n");
       out.write("                </div>\n");
-      out.write("                </div>\n");
-      out.write("             </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

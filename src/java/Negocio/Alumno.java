@@ -10,20 +10,34 @@ package Negocio;
  * @author Antonio
  */
 public class Alumno {
-    private String nombre;
-     private String apellidos;
+   
+
+   
+      private String nombre;
+      private String apellidos;
+      private String sexo;
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
       private Double promedio;
 
-         public Alumno(String nombre, String apellidos,String promedio){
+         public Alumno(String nombre, String apellidos,String sexo,String promedio){
+    
        this.nombre= nombre;
        this.apellidos = apellidos;
+       this.sexo = sexo;
        this.promedio = Double.parseDouble(promedio);
        
       }
       
       
       
-      
+    
     public String getNombre() {
         return nombre;
     }
