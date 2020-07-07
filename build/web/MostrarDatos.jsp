@@ -27,6 +27,7 @@
         <div class="col s6 offset-s3" >
         <div class="card-panel z-depth-5" >
         <form action="EditarDatos.jsp" merthod="post">
+          
             <table class="striped" cellspacing="3" cellpadding="5" border="1" >
             <tr>
                 <th>ID:</th>
@@ -54,8 +55,6 @@
                 
             </tr>
             
-
-         
         </table>
 
            </form>

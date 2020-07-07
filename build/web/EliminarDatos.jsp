@@ -25,7 +25,7 @@
                     <table cellspacing="3" cellpadding="5" border="1">
                          <tr>
                             <td align="right">Ingrese la ID del alumno que quiere eliminar:</td>
-                            <td><input type="text" name="id" placeholder="Ingrese ID"></td>
+                            <td><input type="text" name="id" required="required" placeholder="Ingrese ID"></td>
 
                         </tr>
 

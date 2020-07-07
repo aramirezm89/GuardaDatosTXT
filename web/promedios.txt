@@ -64,3 +64,14 @@ carlos,quiÃ±oa,2.0
 Barto,Argandoña,2.0
 Crisstal,Ramirex,5.6
 Clarisa Herminia,Ramirez Monsalve,7.0
+Antonio,Ramirez,Hombre,7.0
+Antonio,Ramirez,Hombre,7.0
+Clarisa Herminia,Ramirez,Hombre,2.0
+Antonio,Ramirez,Hombre,7.0
+Antonio,Ramirez,Hombre,7.0
+Antonio,Ramirez,Hombre,1.0
+Antonio,Ramirez Monsalve,Hombre,2.0
+Carmela,Carvajal,Mujer,7.0
+carlos,Ramirez,Hombre,7.0
+carlos,Ramirez,Hombre,7.0
+Rosario,Carmona,Mujer,6.5

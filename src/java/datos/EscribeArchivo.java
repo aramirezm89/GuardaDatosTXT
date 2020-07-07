@@ -19,7 +19,7 @@ public class EscribeArchivo {
             archivo = new File("C:\\Users\\Antonio\\Desktop\\AIEP\\SEGUNDO AÑO\\taller_de_aplicaciones_para_internet_en_Java\\Ejemplo2GetSet\\web\\promedios.txt");
             fw = new FileWriter(archivo, true);
             pw = new PrintWriter(fw);
-            pw.println(a.getNombre() + "," + a.getApellidos() + "," + a.getPromedio());
+            pw.println(a.getNombre() + "," + a.getApellidos() + ","+a.getSexo()+"," + a.getPromedio());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

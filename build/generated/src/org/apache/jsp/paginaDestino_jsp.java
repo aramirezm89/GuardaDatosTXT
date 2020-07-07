@@ -57,6 +57,7 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
+      out.write("         <link rel=\"stylesheet\" href=\"css/estilos.css\"/>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"/>\n");
       out.write("        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
@@ -67,25 +68,8 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        ");
  
            
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellidos");
-            String promedio = request.getParameter("promedio");
-            String sexo = request.getParameter("sexo");
-            int registro;
-            Alumno a = new Alumno(nombre, apellido,sexo, promedio);
-            EscribeArchivo.add(a);
-            
-                                try {
-                                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-                                    Connection cnn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=JAVA_1", "sa", "123");
-
-                                    PreparedStatement ps = cnn.prepareStatement("INSERT INTO JAVA_1_Alumno(nombre,apellido,sexo,promedio) values (?,?,?,?)");
-                                    ps.setString(1, nombre);
-                                    ps.setString(2, apellido);
-                                    ps.setString(3, sexo);
-                                    ps.setString(4, promedio);
-
+            Alumno a = (Alumno) request.getAttribute("atribAlumno"); 
+    
        
       out.write("\n");
       out.write("\n");
@@ -94,65 +78,45 @@ public final class paginaDestino_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <div class=\"row\">\n");
       out.write("            <div class=\"col s6 offset-s3\" >\n");
       out.write("                <div class=\"card-panel z-depth-5\" >\n");
-      out.write("\n");
-      out.write("                    <h2>La informacion del alumno es la siguiente</h2>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("                  <header>\n");
+      out.write("                   <div class=\"container\">\n");
+      out.write("                    <h3>La informacion del alumno es la siguiente:</h3>\n");
+      out.write("                   </div>\n");
+      out.write("                  </header>\n");
+      out.write("                    \n");
       out.write("                    <table cellspacing=\"3\" cellpadding=\"5\" border=\"1\">\n");
       out.write("                       \n");
       out.write("                        \n");
       out.write("                        <tr>\n");
-      out.write("                       <td align=\"right\"> <font color=\"green\"><br>Nombre alumno</br></font></td>\n");
+      out.write("                            <td align=\"right\"> <font color=\"green\"><b>Nombre alumno:</b></font></td>\n");
       out.write("                            <td>");
-      out.print(nombre);
+      out.print(a.getNombre());
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
       out.write("                        <tr>\n");
-      out.write("                            <td align=\"right\">Tus apellidos son::</td>\n");
+      out.write("                           <td align=\"right\"> <font color=\"green\"><b>Apellidos del alumno:</b></font></td>\n");
       out.write("                            <td>");
-      out.print(apellido);
+      out.print(a.getApellidos());
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
       out.write("                          <tr>\n");
-      out.write("                            <td align=\"right\">El sexo del alumno es::</td>\n");
+      out.write("                          <td align=\"right\"> <font color=\"green\"><b>Sexo del alumno:</b></font></td>\n");
       out.write("                            <td>");
-      out.print(sexo);
+      out.print(a.getSexo());
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
       out.write("                        <tr>\n");
-      out.write("                            <td align=\"right\">Tu promedio es:</td>\n");
+      out.write("                           <td align=\"right\"> <font color=\"green\"><b>Promedio del alumno:</b></font></td>\n");
       out.write("                            <td>");
-      out.print(promedio);
+      out.print(a.getPromedio());
       out.write("</td>\n");
       out.write("\n");
       out.write("                        </tr>\n");
       out.write("\n");
-      out.write("                        <tr>                \n");
-      out.write("                            <td align=\"right\">  ");
-
-
-                                    registro = ps.executeUpdate();
-                                    if (registro >= 1) {
-                                        out.println("<font size = 4 color='green'> <b>Registrado con exito </b> </font>");
-                                    } else {
-                                        out.println("<font size=4 color='green'> <b>no se pudo insertar el registro </b>");
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-
-                                
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                            </td>       \n");
-      out.write("\n");
-      out.write("\n");
-      out.write("                        </tr>       \n");
+      out.write("                     \n");
       out.write("                    </table>\n");
       out.write("\n");
       out.write("\n");
